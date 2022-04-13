@@ -15,5 +15,8 @@ export default makeStyles(() => ({
   logo: {
     fontWeight: 800,
     fontSize: "1.2rem",
+    display: "flex",
+    alignItems: "center",
+    columnGap: "8px",
   },
 }));

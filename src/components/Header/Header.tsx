@@ -10,6 +10,7 @@ export const Header = () => {
       <Container>
         <a className={classes.logo} href="/">
           Country Locator
+          <img src="./src/world.svg" width={30} />
         </a>
       </Container>
     </header>
