@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   Container,
   Grid,
@@ -7,7 +6,7 @@ import {
   Card,
   CardContent,
   Typography,
-  CircularProgress,
+  CircularProgress
 } from "@mui/material";
 
 import useStyles from "./styles";
@@ -25,7 +24,6 @@ export interface CountriesProps {
 
 export const CountriesList: React.FC<CountriesProps> = ({ data, loading }) => {
   const classes = useStyles();
-  const navigate = useNavigate();
   const DETAILS_URL = "/country/details/";
 
   return (
@@ -41,7 +39,7 @@ export const CountriesList: React.FC<CountriesProps> = ({ data, loading }) => {
                 item
                 key={index}
                 xs={3}
-                onClick={() => navigate(`${DETAILS_URL}${country.code}`)}
+                // onClick={() => navigate(`${DETAILS_URL}${country.code}`)}
               >
                 <Card
                   variant="outlined"

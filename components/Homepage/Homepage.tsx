@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { CountriesList } from "../CountriesList/CountriesList";
-import { getCountries, getContinents } from "../../api/CountriesAPI";
+import { getCountries, getContinents } from "../../pages/api/CountriesAPI";
 import { Filterbar } from "../Filterbar/Filterbar";
 import { Country } from "../types";
 

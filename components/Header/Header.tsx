@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { Container } from "@mui/material";
 
 import useStyles from "./styles";
@@ -8,10 +9,12 @@ export const Header = () => {
   return (
     <header className={classes.header}>
       <Container>
-        <a className={classes.logo} href="/">
-          Country Locator
-          <img src="./src/world.svg" width={30} />
-        </a>
+        <Link href="/">
+          <a className={classes.logo}>
+            <img src="/favicon.svg" width={30} />
+            Country Locator
+          </a>
+        </Link>
       </Container>
     </header>
   );
