@@ -38,13 +38,6 @@ a {
   box-sizing: border-box;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-}
-
 a {
   text-decoration: none;
   color: var(--color-primary-text);

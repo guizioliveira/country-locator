@@ -1,11 +1,10 @@
+import React, { useState, useEffect } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { CountryDetail, Homepage, Header, DetailPage } from "../components";
-import React, { useState, useEffect } from "react";
+import { Header, Filterbar } from "../components";
 import { CountriesList } from "../components/CountriesList/CountriesList";
 import { getCountries, getContinents } from "./api/CountriesAPI";
-import { Filterbar } from "../components/Filterbar/Filterbar";
 import { Country } from "../components/types";
 
 const Home: NextPage = () => {
@@ -36,14 +35,12 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <Header />
-      <div className="container">
-        <Filterbar
-          setCountries={setCountries}
-          countries={unfiltered}
-          continents={continents}
-        />
-        <CountriesList data={countries} loading={countriesAPI.loading} />
-      </div>
+      <Filterbar
+        setCountries={setCountries}
+        countries={unfiltered}
+        continents={continents}
+      />
+      <CountriesList data={countries} loading={countriesAPI.loading} />
     </>
   );
 };
