@@ -1,7 +1,7 @@
-import { Header } from "./Header";
-import { Filterbar } from "./Filterbar/Filterbar";
+export * from "./Header";
+export * from "./Filterbar";
 import { CountriesList } from "./CountriesList/CountriesList";
 import { CountryDetail } from "./CountryDetail/CountryDetail";
 import { DetailPage } from "./DetailPage/DetailPage";
 
-export { Header, Filterbar, DetailPage, CountriesList, CountryDetail };
+export { DetailPage, CountriesList, CountryDetail };
