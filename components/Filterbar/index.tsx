@@ -71,7 +71,7 @@ export const Filterbar: React.FC<FilterBarProps> = ({
               <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                 <CaretDown
                   size={20}
-                  className="text-gray-500"
+                  className="text-gray-400"
                   aria-hidden="true"
                 />
               </span>
@@ -107,14 +107,14 @@ export const Filterbar: React.FC<FilterBarProps> = ({
           </div>
         </Listbox>
         <input
-          className="px-3 bg-shape text-white rounded-md text-sm h-10 min-w-[200px] placeholder-gray-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-primary-dark"
+          className="px-3 bg-shape text-white rounded-md text-sm h-10 min-w-[200px] placeholder-gray-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-primary-dark"
           type="text"
           placeholder="Filter by currency"
           onChange={(e) => setCurrencySearch(e.target.value)}
           value={currencySearch || ""}
         />
         <input
-          className="px-3 bg-shape text-white rounded-md text-sm h-10 min-w-[200px] placeholder-gray-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-primary-dark"
+          className="px-3 bg-shape text-white rounded-md text-sm h-10 min-w-[200px] placeholder-gray-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-primary-dark"
           type="text"
           placeholder="Search by country name"
           onChange={(e) => setTextSearch(e.target.value)}
