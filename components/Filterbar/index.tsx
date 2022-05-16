@@ -54,11 +54,11 @@ export const Filterbar: React.FC<FilterBarProps> = ({
   };
 
   return (
-    <div className="w-full py-4 bg-[#202024]">
+    <div className="w-full py-4 bg-primary-dark">
       <div className="container mx-auto flex justify-end gap-4 flex-col md:flex-row">
         <Listbox value={continentCode} onChange={setContinentCode}>
           <div className="relative">
-            <Listbox.Button className="relative px-3 bg-[#29292E] min-w-full md:min-w-[200px] text-left text-white rounded-md text-sm h-10 cursor-pointer focus-within:outline-none focus-within:ring-2 focus-within:ring-[#8257e5] focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-[#202024]">
+            <Listbox.Button className="relative px-3 bg-secundary-dark min-w-full md:min-w-[200px] text-left text-white rounded-md text-sm h-10 cursor-pointer focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-primary-dark">
               <span className="block truncate">
                 {continentCode ? (
                   continents.find(
@@ -76,13 +76,13 @@ export const Filterbar: React.FC<FilterBarProps> = ({
                 />
               </span>
             </Listbox.Button>
-            <Listbox.Options className="absolute mt-1 w-full overflow-auto rounded-md bg-[#29292E] py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+            <Listbox.Options className="absolute mt-1 w-full overflow-auto rounded-md bg-secundary-dark py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
               {continents.map((continent) => (
                 <Listbox.Option
                   key={continent.code}
                   className={({ active }) =>
                     `relative cursor-pointer select-none py-2 pl-10 pr-4 ${
-                      active ? "bg-[#8257e5] text-white" : "text-gray-400"
+                      active ? "bg-primary text-white" : "text-gray-400"
                     }`
                   }
                   value={continent.code}
@@ -95,7 +95,7 @@ export const Filterbar: React.FC<FilterBarProps> = ({
                         {continent.name}
                       </span>
                       {selected ? (
-                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-[#734BD1]">
+                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-primary-shape">
                           <Check size={20} aria-hidden="true" />
                         </span>
                       ) : null}
@@ -107,27 +107,27 @@ export const Filterbar: React.FC<FilterBarProps> = ({
           </div>
         </Listbox>
         <input
-          className="px-3 bg-[#29292E] text-white rounded-md text-sm h-10 min-w-[200px] placeholder-gray-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-[#8257e5] focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-[#202024]"
+          className="px-3 bg-secundary-dark text-white rounded-md text-sm h-10 min-w-[200px] placeholder-gray-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-primary-dark"
           type="text"
           placeholder="Filter by currency"
           onChange={(e) => setCurrencySearch(e.target.value)}
           value={currencySearch || ""}
         />
         <input
-          className="px-3 bg-[#29292E] text-white rounded-md text-sm h-10 min-w-[200px] placeholder-gray-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-[#8257e5] focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-[#202024]"
+          className="px-3 bg-secundary-dark text-white rounded-md text-sm h-10 min-w-[200px] placeholder-gray-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-primary-dark"
           type="text"
           placeholder="Search by country name"
           onChange={(e) => setTextSearch(e.target.value)}
           value={textSearch || ""}
         />
         <button
-          className="bg-[#8257e5] h-10 w-full md:w-10 rounded-md flex items-center justify-center cursor-pointer text-white md:hover:bg-[#9466ff] transition-colors focus-within:outline-none focus-within:ring-2 focus-within:ring-[#8257e5] focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-[#202024]"
+          className="bg-primary h-10 w-full md:w-10 rounded-md flex items-center justify-center cursor-pointer text-white md:hover:bg-primary-hover transition-colors focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-primary-dark"
           onClick={handleSearch}
         >
           <MagnifyingGlass size={22} weight="bold" />
         </button>
         <button
-          className="bg-[#8257e5] h-10 w-full md:w-10 rounded-md flex items-center justify-center text-white cursor-pointer md:hover:bg-[#9466ff] transition-colors focus-within:outline-none focus-within:ring-2 focus-within:ring-[#8257e5] focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-[#202024]"
+          className="bg-primary h-10 w-full md:w-10 rounded-md flex items-center justify-center text-white cursor-pointer md:hover:bg-primary-hover transition-colors focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-primary-dark"
           onClick={handleClearSearch}
         >
           <Backspace size={22} weight="bold" />
