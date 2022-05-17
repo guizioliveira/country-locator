@@ -16,14 +16,14 @@ export const CountriesList: React.FC<CountriesProps> = ({ data, loading }) => {
         {loading ? (
           <Loading />
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-5 sm:grid-cols-3 gap-4 md:gap-7">
+          <div className="w-full grid grid-cols-2 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 gap-4 md:gap-7">
             {data.map((country, index) => (
               <button
                 key={index}
                 onClick={() => console.log(`${DETAILS_URL}${country.code}`)}
                 className="flex flex-col p-4 bg-gradient-to-r from-secundary-dark via-primary-dark to-primary-dark rounded-md border-[1px] border-shape shadow min-h-min group sm:hover:from-primary sm:hover:to-primary sm:hover:scale-110 transition-transform transition-color focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-background"
               >
-                <h2 className="text-grayer text-left text-lg tracking-wide font-extrabold mb-2">
+                <h2 className=" text-grayer text-left text-lg tracking-wide font-extrabold mb-2">
                   {country.name}
                 </h2>
                 <span className="text-sm text-base-text font-light group-hover:font-bold">
