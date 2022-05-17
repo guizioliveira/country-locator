@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Header, Filterbar } from "../components";
-import { CountriesList } from "../components/CountriesList/CountriesList";
+import { Header, Filterbar, CountriesList } from "../components";
 import { getCountries, getContinents } from "./api/CountriesAPI";
 import { Country } from "../components/types";
 
