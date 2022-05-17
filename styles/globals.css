@@ -5,7 +5,7 @@
 @layer base {
   html,
   body {
-    @apply p-0 m-0 bg-background font-roboto;
+    @apply p-0 m-0 bg-background font-roboto scrollbar-thin scrollbar-thumb-primary scrollbar-track-primary-dark;
   }
 
   * {
