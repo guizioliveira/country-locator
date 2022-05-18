@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Header, Filterbar, CountriesList } from "../components";
 import { getCountries, getContinents } from "./api/CountriesAPI";
 import { Country } from "../components/types";
@@ -10,21 +9,22 @@ const Home: NextPage = () => {
   const [countries, setCountries] = useState([] as Country[]);
   const [unfiltered, setUnfiltered] = useState([]);
   const [continents, setContinents] = useState([]);
-  const countriesAPI = getCountries();
-  const continentsAPI = getContinents();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (countriesAPI.data) {
-      setCountries(countriesAPI.data.countries);
-      setUnfiltered(countriesAPI.data.countries);
-    }
-  }, [countriesAPI.loading]);
+    async function handlePromise() {
+      const continentsAPI = await getContinents();
+      const countriesAPI = await getCountries();
+      setContinents(continentsAPI);
+      setCountries(countriesAPI);
+      setUnfiltered(countriesAPI);
 
-  useEffect(() => {
-    if (continentsAPI.data) {
-      setContinents(continentsAPI.data.continents);
+      if (countriesAPI) {
+        setIsLoading(false);
+      }
     }
-  }, [continentsAPI.loading]);
+    handlePromise();
+  }, []);
 
   return (
     <>
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
           continents={continents}
         />
       </div>
-      <CountriesList data={countries} loading={countriesAPI.loading} />
+      <CountriesList data={countries} loading={isLoading} />
     </>
   );
 };
