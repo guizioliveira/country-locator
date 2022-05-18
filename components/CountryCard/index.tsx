@@ -7,7 +7,7 @@ interface CountryCardProps {
 }
 
 export const CountryCard = ({ country }: CountryCardProps) => {
-  const DETAILS_URL = `/country/details/${country.code}`;
+  const DETAILS_URL = `/country/${country.code}`;
 
   return (
     <Link href={DETAILS_URL}>
