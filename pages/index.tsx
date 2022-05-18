@@ -4,6 +4,7 @@ import Head from "next/head";
 import { Header, Filterbar, CountriesList } from "../components";
 import { getCountries, getContinents } from "./api/CountriesAPI";
 import { Country } from "../components/types";
+import { Loading } from "../components/Loading";
 
 const Home: NextPage = () => {
   const [countries, setCountries] = useState([] as Country[]);
@@ -35,13 +36,19 @@ const Home: NextPage = () => {
       </Head>
       <div className="fixed top-0 z-10 w-full">
         <Header />
-        <Filterbar
-          setCountries={setCountries}
-          countries={unfiltered}
-          continents={continents}
-        />
+        {!isLoading && (
+          <Filterbar
+            setCountries={setCountries}
+            countries={unfiltered}
+            continents={continents}
+          />
+        )}
       </div>
-      <CountriesList data={countries} loading={isLoading} />
+      <CountriesList
+        data={countries}
+        loading={isLoading}
+        setIsLoading={() => setIsLoading(true)}
+      />
     </>
   );
 };
