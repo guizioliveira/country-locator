@@ -20,7 +20,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const countryCode = context.params!.country;
+  const countryCode = context.params?.country;
   const country = await getCountryByCode(countryCode as string);
   return {
     props: {

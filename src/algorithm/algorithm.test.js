@@ -1,4 +1,4 @@
-const sellTickets = require("./algorithm");
+import sellTickets from "./algorithm";
 
 describe("test avengers algorithm", () => {
   it("should return yes if there is only one person with 25 dollars", () => {

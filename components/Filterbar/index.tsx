@@ -63,7 +63,7 @@ export const Filterbar: React.FC<FilterBarProps> = ({
                 {continentCode ? (
                   continents.find(
                     (continent) => continent.code === continentCode
-                  )!.name
+                  )?.name
                 ) : (
                   <span className="text-gray-400">Filter by continent</span>
                 )}

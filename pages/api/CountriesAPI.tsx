@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 const client = new ApolloClient({
@@ -52,19 +50,19 @@ const CONTINENTS_LIST = gql`
 
 // create a component that renders a select input for coutries
 export async function getCountries() {
-  const { data, loading } = await client.query({ query: LIST_COUNTRIES });
+  const { data } = await client.query({ query: LIST_COUNTRIES });
   return data.countries;
 }
 
 export async function getCountryByCode(code: string) {
-  const { data, loading } = await client.query({
+  const { data } = await client.query({
     query: COUNTRY_BY_CODE(code)
   });
   return data.country;
 }
 
 export async function getContinents() {
-  const { data, loading } = await client.query({
+  const { data } = await client.query({
     query: CONTINENTS_LIST
   });
   return data.continents;

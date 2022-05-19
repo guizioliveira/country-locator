@@ -4,7 +4,6 @@ import Head from "next/head";
 import { Header, Filterbar, CountriesList } from "../components";
 import { getCountries, getContinents } from "./api/CountriesAPI";
 import { Country } from "../components/types";
-import { Loading } from "../components/Loading";
 
 const Home: NextPage = () => {
   const [countries, setCountries] = useState([] as Country[]);
