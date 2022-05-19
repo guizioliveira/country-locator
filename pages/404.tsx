@@ -1,3 +1,4 @@
+import Head from "next/head"
 import Link from "next/link"
 import React from "react"
 import { Header } from "../components"
@@ -5,6 +6,11 @@ import { Header } from "../components"
 export default function notFound() {
   return (
     <>
+      <Head>
+        <title>Not found | Country Locator</title>
+        <meta name="description" content="Not found page" />
+        <link rel="icon" href="/favicon.svg" />
+      </Head>
       <Header />
       <div className="flex flex-col h-[calc(100vh-62px)] items-center justify-center">
         <svg
