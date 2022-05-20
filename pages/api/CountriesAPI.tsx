@@ -58,7 +58,7 @@ export async function getCountryByCode(code: string) {
   const { data } = await client.query({
     query: COUNTRY_BY_CODE(code),
   })
-  return [...data.country]
+  return data.country
 }
 
 export async function getContinents() {
