@@ -68,7 +68,7 @@ export const Filterbar: React.FC<FilterBarProps> = ({
   }
 
   return (
-    <div className="w-full py-5 md:py-4 bg-primary-dark relative">
+    <div className="w-full py-5 md:py-4 bg-primary-dark relative shadow-xl">
       <div
         className={`${
           !isFilterbarOpen
