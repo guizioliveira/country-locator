@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import {
   MagnifyingGlass,
   Backspace,
@@ -30,10 +30,6 @@ export const Filterbar: React.FC<FilterBarProps> = ({
   const [textSearch, setTextSearch] = useState("")
   const [currencySearch, setCurrencySearch] = useState("")
   const [continentCode, setContinentCode] = useState("")
-
-  useEffect(() => {
-    console.log(isFilterbarOpen)
-  }, [isFilterbarOpen])
 
   const handleSearch = () => {
     setCountries(
