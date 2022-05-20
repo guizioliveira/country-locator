@@ -70,7 +70,7 @@ export const Filterbar: React.FC<FilterBarProps> = ({
           !isFilterbarOpen
             ? "max-h-0 opacity-0 overflow-hidden"
             : "pb-4 max-h-96 opacity-100"
-        } container mx-auto md:opacity-100 md:max-h-max flex justify-end gap-4 flex-col md:flex-row transition-all duration-400 ease-linear`}
+        } container mx-auto overflow-visible md:pb-0 md:opacity-100 md:max-h-max flex justify-end gap-4 flex-col md:flex-row transition-all duration-400 ease-linear`}
       >
         <Listbox value={continentCode} onChange={setContinentCode}>
           <div className="relative z-10">
