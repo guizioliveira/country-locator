@@ -6,16 +6,22 @@ import { Country } from "../types"
 export interface CountriesListProps {
   data: Country[]
   loading: boolean
+  isFilterbarOpen: boolean
   setIsLoading: () => void
 }
 
 export const CountriesList: React.FC<CountriesListProps> = ({
   data,
   loading,
+  isFilterbarOpen,
   setIsLoading,
 }) => {
   return (
-    <div className="container mx-auto mt-96 md:mt-40 mb-6">
+    <div
+      className={`${
+        isFilterbarOpen ? "mt-[26rem]" : "mt-36"
+      } container mx-auto md:mt-40 mb-6 transition-all duration-300`}
+    >
       <div className="flex items-center justify-center">
         {loading ? (
           <Loading />

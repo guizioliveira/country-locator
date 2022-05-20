@@ -1,61 +1,81 @@
-import React, { useState } from "react";
-import { MagnifyingGlass, Backspace, CaretDown, Check } from "phosphor-react";
-import { Listbox } from "@headlessui/react";
-import { Country } from "../types";
+import React, { useEffect, useState } from "react"
+import {
+  MagnifyingGlass,
+  Backspace,
+  CaretDown,
+  Check,
+  List,
+} from "phosphor-react"
+import { Listbox } from "@headlessui/react"
+import { Country } from "../types"
 
 interface FilterBarProps {
-  countries: Country[];
-  setCountries: (countries: Country[]) => void;
+  isFilterbarOpen: boolean
+  setIsFilterbarOpen: (isFilterbarOpen: boolean) => void
+  countries: Country[]
+  setCountries: (countries: Country[]) => void
   continents: Array<{
-    name: string;
-    code: string;
-  }>;
+    name: string
+    code: string
+  }>
 }
 
 export const Filterbar: React.FC<FilterBarProps> = ({
+  isFilterbarOpen,
+  setIsFilterbarOpen,
   countries,
   setCountries,
-  continents
+  continents,
 }) => {
-  const [textSearch, setTextSearch] = useState("");
-  const [currencySearch, setCurrencySearch] = useState("");
-  const [continentCode, setContinentCode] = useState("");
+  const [textSearch, setTextSearch] = useState("")
+  const [currencySearch, setCurrencySearch] = useState("")
+  const [continentCode, setContinentCode] = useState("")
+
+  useEffect(() => {
+    console.log(isFilterbarOpen)
+  }, [isFilterbarOpen])
 
   const handleSearch = () => {
     setCountries(
       countries.filter((country) => {
-        const filters = [];
+        const filters = []
         if (textSearch) {
           filters.push(
             country.name.toLowerCase().startsWith(textSearch.toLowerCase())
-          );
+          )
         }
         if (currencySearch) {
           filters.push(
             country.currency
               ?.toLowerCase()
               .includes(currencySearch.toLowerCase())
-          );
+          )
         }
         if (continentCode) {
-          filters.push(country.continent.code === continentCode);
+          filters.push(country.continent.code === continentCode)
         }
 
-        return filters.reduce((acc, curr) => acc && curr, true);
+        return filters.reduce((acc, curr) => acc && curr, true)
       })
-    );
-  };
+    )
+  }
 
   const handleClearSearch = () => {
-    setCountries(countries);
-    setTextSearch("");
-    setCurrencySearch("");
-    setContinentCode("");
-  };
+    setCountries(countries)
+    setTextSearch("")
+    setCurrencySearch("")
+    setContinentCode("")
+  }
 
   return (
-    <div className="w-full py-4 bg-primary-dark">
-      <div className="container mx-auto flex justify-end gap-4 flex-col md:flex-row">
+    <div className="w-full py-5 md:py-4 bg-primary-dark relative">
+      <div
+        className={`${
+          !isFilterbarOpen
+            ? "max-h-0 opacity-0 overflow-hidden"
+            : "pb-4 max-h-96 opacity-100"
+        } container mx-auto md:opacity-100 md:max-h-max flex justify-end gap-4 flex-col md:flex-row transition-all duration-400 ease-linear`}
+      >
         <Listbox value={continentCode} onChange={setContinentCode}>
           <div className="relative">
             <Listbox.Button className="relative px-3 bg-shape min-w-full md:min-w-[200px] text-left text-white rounded-md text-sm h-10 cursor-pointer focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-primary-dark">
@@ -133,6 +153,16 @@ export const Filterbar: React.FC<FilterBarProps> = ({
           <Backspace size={22} weight="bold" />
         </button>
       </div>
+      <div className="md:hidden flex justify-center">
+        <button
+          onClick={() => setIsFilterbarOpen(!isFilterbarOpen)}
+          className="absolute w-10 h-10 bg-secundary-dark rounded-full"
+        >
+          <div className="flex items-center justify-center w-10 h-10">
+            <List weight="bold" className="w-6 h-6 text-primary" />
+          </div>
+        </button>
+      </div>
     </div>
-  );
-};
+  )
+}

@@ -10,6 +10,7 @@ const Home: NextPage = () => {
   const [unfiltered, setUnfiltered] = useState([])
   const [continents, setContinents] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [isFilterbarOpen, setIsFilterbarOpen] = useState(false)
 
   useEffect(() => {
     async function handlePromise() {
@@ -40,6 +41,8 @@ const Home: NextPage = () => {
         <Header />
         {!isLoading && (
           <Filterbar
+            isFilterbarOpen={isFilterbarOpen}
+            setIsFilterbarOpen={setIsFilterbarOpen}
             setCountries={setCountries}
             countries={unfiltered}
             continents={continents}
@@ -49,6 +52,7 @@ const Home: NextPage = () => {
       <CountriesList
         data={countries}
         loading={isLoading}
+        isFilterbarOpen={isFilterbarOpen}
         setIsLoading={() => setIsLoading(true)}
       />
     </>
