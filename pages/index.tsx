@@ -3,12 +3,12 @@ import type { NextPage } from "next"
 import Head from "next/head"
 import { Header, Filterbar, CountriesList } from "../components"
 import { getCountries, getContinents } from "./api/CountriesAPI"
-import { Country } from "../components/types"
+import { Continent, Country } from "../components/types"
 
 const Home: NextPage = () => {
   const [countries, setCountries] = useState([] as Country[])
-  const [unfiltered, setUnfiltered] = useState([])
-  const [continents, setContinents] = useState([])
+  const [unfiltered, setUnfiltered] = useState([] as Country[])
+  const [continents, setContinents] = useState([] as Continent[])
   const [isLoading, setIsLoading] = useState(true)
   const [isFilterbarOpen, setIsFilterbarOpen] = useState(false)
 

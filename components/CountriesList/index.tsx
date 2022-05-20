@@ -27,13 +27,15 @@ export const CountriesList: React.FC<CountriesListProps> = ({
           <Loading />
         ) : data.length != 0 ? (
           <div className="w-full grid grid-cols-2 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 gap-4 md:gap-7">
-            {data.map((country, index) => (
-              <CountryCard
-                key={index}
-                country={country}
-                setIsLoading={setIsLoading}
-              />
-            ))}
+            {data
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((country, index) => (
+                <CountryCard
+                  key={index}
+                  country={country}
+                  setIsLoading={setIsLoading}
+                />
+              ))}
           </div>
         ) : (
           <span className="text-base-text font-bold text-lg">
