@@ -73,7 +73,7 @@ export const Filterbar: React.FC<FilterBarProps> = ({
         } container mx-auto md:opacity-100 md:max-h-max flex justify-end gap-4 flex-col md:flex-row transition-all duration-400 ease-linear`}
       >
         <Listbox value={continentCode} onChange={setContinentCode}>
-          <div className="relative">
+          <div className="relative z-10">
             <Listbox.Button className="relative px-3 bg-shape min-w-full md:min-w-[200px] text-left text-white rounded-md text-sm h-10 cursor-pointer focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-primary-dark">
               <span className="block truncate">
                 {continentCode ? (
