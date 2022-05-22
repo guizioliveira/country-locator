@@ -1,7 +1,7 @@
-import Head from "next/head"
-import Link from "next/link"
-import React from "react"
-import { Header } from "../components"
+import Head from "next/head";
+import Link from "next/link";
+import React from "react";
+import { Header } from "../components";
 
 export default function notFound() {
   return (
@@ -86,5 +86,5 @@ export default function notFound() {
         </Link>
       </div>
     </>
-  )
+  );
 }

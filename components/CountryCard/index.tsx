@@ -1,14 +1,14 @@
-import Link from "next/link"
-import React from "react"
-import { Country } from "../types"
+import Link from "next/link";
+import React from "react";
+import { Country } from "../types";
 
 interface CountryCardProps {
-  country: Country
-  setIsLoading: () => void
+  country: Country;
+  setIsLoading: () => void;
 }
 
 export const CountryCard = ({ country, setIsLoading }: CountryCardProps) => {
-  const DETAILS_URL = `/country/${country.code}`
+  const DETAILS_URL = `/country/${country.code}`;
 
   return (
     <Link href={DETAILS_URL}>
@@ -24,5 +24,5 @@ export const CountryCard = ({ country, setIsLoading }: CountryCardProps) => {
         </span>
       </a>
     </Link>
-  )
-}
+  );
+};

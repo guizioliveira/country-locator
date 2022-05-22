@@ -4,7 +4,7 @@ import {
   IdentificationCard,
   Buildings,
   CurrencyCircleDollar,
-  ChatsCircle
+  ChatsCircle,
 } from "phosphor-react";
 import { Country } from "../types";
 

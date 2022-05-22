@@ -1,9 +1,9 @@
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client"
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   uri: "https://countries.trevorblades.com",
-})
+});
 
 // write a GraphQL query that asks for names and codes for all countries
 const LIST_COUNTRIES = gql`
@@ -18,7 +18,7 @@ const LIST_COUNTRIES = gql`
       currency
     }
   }
-`
+`;
 
 const COUNTRY_BY_CODE = (code: string) => gql`
 {
@@ -37,7 +37,7 @@ const COUNTRY_BY_CODE = (code: string) => gql`
     }
   }
 }
-`
+`;
 
 const CONTINENTS_LIST = gql`
   {
@@ -46,24 +46,24 @@ const CONTINENTS_LIST = gql`
       name
     }
   }
-`
+`;
 
 // create a component that renders a select input for coutries
 export async function getCountries() {
-  const { data } = await client.query({ query: LIST_COUNTRIES })
-  return [...data.countries]
+  const { data } = await client.query({ query: LIST_COUNTRIES });
+  return [...data.countries];
 }
 
 export async function getCountryByCode(code: string) {
   const { data } = await client.query({
     query: COUNTRY_BY_CODE(code),
-  })
-  return data.country
+  });
+  return data.country;
 }
 
 export async function getContinents() {
   const { data } = await client.query({
     query: CONTINENTS_LIST,
-  })
-  return [...data.continents]
+  });
+  return [...data.continents];
 }

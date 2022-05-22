@@ -1,23 +1,23 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import {
   MagnifyingGlass,
   Backspace,
   CaretDown,
   Check,
   List,
-} from "phosphor-react"
-import { Listbox } from "@headlessui/react"
-import { Country } from "../types"
+} from "phosphor-react";
+import { Listbox } from "@headlessui/react";
+import { Country } from "../types";
 
 interface FilterBarProps {
-  isFilterbarOpen: boolean
-  setIsFilterbarOpen: (isFilterbarOpen: boolean) => void
-  countries: Country[]
-  setCountries: (countries: Country[]) => void
+  isFilterbarOpen: boolean;
+  setIsFilterbarOpen: (isFilterbarOpen: boolean) => void;
+  countries: Country[];
+  setCountries: (countries: Country[]) => void;
   continents: Array<{
-    name: string
-    code: string
-  }>
+    name: string;
+    code: string;
+  }>;
 }
 
 export const Filterbar: React.FC<FilterBarProps> = ({
@@ -27,41 +27,41 @@ export const Filterbar: React.FC<FilterBarProps> = ({
   setCountries,
   continents,
 }) => {
-  const [textSearch, setTextSearch] = useState("")
-  const [currencySearch, setCurrencySearch] = useState("")
-  const [continentCode, setContinentCode] = useState("")
+  const [textSearch, setTextSearch] = useState("");
+  const [currencySearch, setCurrencySearch] = useState("");
+  const [continentCode, setContinentCode] = useState("");
 
   const handleSearch = () => {
     setCountries(
       countries.filter((country) => {
-        const filters = []
+        const filters = [];
         if (textSearch) {
           filters.push(
             country.name.toLowerCase().startsWith(textSearch.toLowerCase())
-          )
+          );
         }
         if (currencySearch) {
           filters.push(
             country.currency
               ?.toLowerCase()
               .includes(currencySearch.toLowerCase())
-          )
+          );
         }
         if (continentCode) {
-          filters.push(country.continent.code === continentCode)
+          filters.push(country.continent.code === continentCode);
         }
 
-        return filters.reduce((acc, curr) => acc && curr, true)
+        return filters.reduce((acc, curr) => acc && curr, true);
       })
-    )
-  }
+    );
+  };
 
   const handleClearSearch = () => {
-    setCountries(countries)
-    setTextSearch("")
-    setCurrencySearch("")
-    setContinentCode("")
-  }
+    setCountries(countries);
+    setTextSearch("");
+    setCurrencySearch("");
+    setContinentCode("");
+  };
 
   return (
     <div className="w-full py-5 md:py-4 bg-primary-dark relative shadow-xl">
@@ -160,5 +160,5 @@ export const Filterbar: React.FC<FilterBarProps> = ({
         </button>
       </div>
     </div>
-  )
-}
+  );
+};

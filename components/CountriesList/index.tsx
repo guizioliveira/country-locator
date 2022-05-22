@@ -1,13 +1,13 @@
-import React from "react"
-import { CountryCard } from "../CountryCard"
-import { Loading } from "../Loading"
-import { Country } from "../types"
+import React from "react";
+import { CountryCard } from "../CountryCard";
+import { Loading } from "../Loading";
+import { Country } from "../types";
 
 export interface CountriesListProps {
-  data: Country[]
-  loading: boolean
-  isFilterbarOpen: boolean
-  setIsLoading: () => void
+  data: Country[];
+  loading: boolean;
+  isFilterbarOpen: boolean;
+  setIsLoading: () => void;
 }
 
 export const CountriesList: React.FC<CountriesListProps> = ({
@@ -44,5 +44,5 @@ export const CountriesList: React.FC<CountriesListProps> = ({
         )}
       </div>
     </div>
-  )
-}
+  );
+};
