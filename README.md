@@ -2,7 +2,6 @@
 
 ![image](https://user-images.githubusercontent.com/21250477/163267768-d452fb2f-5b9b-4b55-8852-d3e243144fc3.png)
 
-
 ## Todo
 
 #### 1. List of countries. This page must have

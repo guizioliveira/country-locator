@@ -2,7 +2,7 @@ module.exports = {
   mode: "jit",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}"
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     screens: {
@@ -11,11 +11,11 @@ module.exports = {
       sm: "640px",
       md: "768px",
       lg: "1024px",
-      xl: "1440px"
+      xl: "1440px",
     },
     extend: {
       fontFamily: {
-        roboto: ["Roboto", "sans-serif"]
+        roboto: ["Roboto", "sans-serif"],
       },
       colors: {
         background: "#121214",
@@ -33,12 +33,12 @@ module.exports = {
         "primary-light": "#996dff",
         grayer: "#e1e1e6",
         text: "#a8a8b3",
-        "base-text": "#c4c4cc"
-      }
-    }
+        "base-text": "#c4c4cc",
+      },
+    },
   },
   plugins: [
     require("tailwind-scrollbar"),
-    require("tailwindcss-animation-delay")
-  ]
+    require("tailwindcss-animation-delay"),
+  ],
 };

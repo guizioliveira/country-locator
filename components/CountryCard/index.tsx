@@ -14,12 +14,12 @@ export const CountryCard = ({ country, setIsLoading }: CountryCardProps) => {
     <Link href={DETAILS_URL}>
       <a
         onClick={setIsLoading}
-        className="flex flex-col p-4 bg-gradient-to-r from-secundary-dark via-primary-dark to-primary-dark rounded-md border-[1px] border-shape shadow min-h-min group sm:hover:from-primary sm:hover:to-primary sm:hover:scale-110 transition-transform transition-color focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-background"
+        className="transition-color group flex min-h-min flex-col rounded-md border-[1px] border-shape bg-gradient-to-r from-secundary-dark via-primary-dark to-primary-dark p-4 shadow transition-transform focus-within:outline-none focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-75 focus-within:ring-offset-2 focus-within:ring-offset-background sm:hover:scale-110 sm:hover:from-primary sm:hover:to-primary"
       >
-        <h2 className=" text-grayer text-left text-lg tracking-wide font-extrabold mb-2">
+        <h2 className=" mb-2 text-left text-lg font-extrabold tracking-wide text-grayer">
           {country.name}
         </h2>
-        <span className="text-sm text-base-text font-light md:group-hover:font-bold">
+        <span className="text-sm font-light text-base-text md:group-hover:font-bold">
           {country.continent.name}
         </span>
       </a>

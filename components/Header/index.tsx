@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const Header = () => {
   return (
-    <div className="bg-secundary-dark p-4 w-full">
+    <div className="w-full bg-secundary-dark p-4">
       <div className="container mx-auto">
         <Link href="/">
           <a className="flex max-w-xs items-center justify-start gap-4">
@@ -14,7 +14,7 @@ export const Header = () => {
               height={30}
               alt="Image of the world inside of a magnifying glass"
             />
-            <span className="font-extrabold text-xl text-grayer">
+            <span className="text-xl font-extrabold text-grayer">
               Country Locator
             </span>
           </a>
