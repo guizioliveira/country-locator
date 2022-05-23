@@ -1,46 +1,55 @@
-# Country Locator
+<p align="center">
+  <img width="230" src="https://user-images.githubusercontent.com/21250477/169831636-40241738-bd65-4250-bf85-6e6d3eef3f67.png">
+</p>
 
-![image](https://user-images.githubusercontent.com/21250477/163267768-d452fb2f-5b9b-4b55-8852-d3e243144fc3.png)
+<p align="center">
+ <img width="800" src="https://user-images.githubusercontent.com/21250477/169833022-43c983fa-76b0-4b17-9999-f6865c04fa4e.png">
+ </p>
+ 
+## About the project
+I built this project for a job interview and after that, I created this repository to implement some feedbacks that I received throw the process. The project was build using [Next.js](https://nextjs.org/), [GraphQL](https://graphql.org/) and [TailwindCSS](https://tailwindcss.com/). Aiming at accessibility I use the [Headless UI](https://headlessui.dev/) library and keyboard navigation for all the application. In addition, the application is fully responsive and can be accessed on any device.
 
-## Todo
+The idea of the project was to create an application that would return a list of countries with their respective information such as capital, continent, currency, and languages.
 
-#### 1. List of countries. This page must have
+You can access the deployed version [Here](https://countrylocator.vercel.app).
 
-- [x] A search bar.
-- [x] Filter by continent.
-- [x] Filter by currency
+## How it works
 
-#### 2. Detail of a country
+To get the countries data, I used the [Countries GraphQL API](https://github.com/trevorblades/countries).
 
-- [x] Clicked on a country in the list redirects to a new view.
+When accessing the application, the user receives a list of all countries returned by the API (filtered by name). At the top of the page, three possible search filters are shown, being them by continent, currency, and by country name. It is possible to use one or more filters at the same time.
 
-The view contains the follow country information
+Once a country card is clicked, the user will be redirected to the detail page of the chosen country. On this page, you will find the name, code, continent, capital, currency, and languages of the country.
 
-- [x] code
-- [x] name
-- [x] currency
-- [x] continent
-- [x] languages
-- [x] capital
+## Usage
 
-## Setup
+```bash
+# Clone this repository
+git clone https://github.com/guizioliveira/country-locator.git
 
-1. Run `yarn install` to install all project dependencies.
-2. After install, use `yarn dev` command to start the application.
+# Install all dependences
+yarn
 
-## Overflow
+# Start the development server
+yarn dev
 
-When starting the application, the user is directed to the homepage. It will show all countries without any filter. At the top of the page, three possible search filters are shown, being them by continent, currency, and by country name. It is possible to use one or more filters at the same time.
-
-By clicking on any of the country cards, the user will be redirected to the detail page of the chosen country. On this page, you will find the name, code, continent, capital, currency, and languages of the country.
+# Start the production server
+yarn build
+yarn start
+```
 
 ## Routes
 
-- `/` to access the homepage.
-- `/country/details/{countryCode}` to access the detail page of the respective country.
+- `/` to access the homepage with all countries listed.
+- `/country/{countryCode}` to access the detail page of the respective country.
 
-# Algorithm Exercise
+## Improvements
 
-The algorithm is on the path `src/algorithm/algorithm.js`. Some tests were developed using the _Jest_ structure and they can be executed with the command `yarn test`.
+- As I am now using nextJS, I am no longer controlling the routes with `react-router-dom`, instead, I have now created all the necessary URLs using `getStaticPaths`;
+- Page 404 implemented;
+- Eslint implemented;
+- Prettier implemented and applied on linter;
+- Solid Color scheme structure with tailwind;
+- Collapse filterbar on mobile version.
 
-Hope you like it!
+:star: Hope you like it!
